@@ -1,0 +1,25 @@
+version: '3'
+services:
+  emby:
+    image: lscr.io/linuxserver/emby:${EMBY_VERSION:-latest}
+    container_name: emby
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Asia/Shanghai
+    volumes:
+      - ${EMBY_ROOT:-./emby_app}/datas/libray:/config
+      - ${EMBY_ROOT:-./emby_app}/datas/tvshows:/data/tvshows
+      - ${EMBY_ROOT:-./emby_app}/datas/movies:/data/movies
+      - ${EMBY_ROOT:-./emby_app}/datas/opt/vc/lib:/opt/vc/lib
+    ports:
+      - 8096:8096
+      - 8920:8920 #optional
+        #    devices:
+        #      - /dev/dri:/dev/dri #optional
+        #      - /dev/vchiq:/dev/vchiq #optional
+        #      - /dev/video10:/dev/video10 #optional
+        #      - /dev/video11:/dev/video11 #optional
+        #      - /dev/video12:/dev/video12 #optional
+    restart: unless-stopped
+
