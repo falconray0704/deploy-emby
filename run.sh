@@ -40,7 +40,7 @@ EXEC_CMD=""
 EXEC_ITEMS_LIST=""
 
 
-deploy_bookstack()
+deploy_emby()
 {
     if [ ! -d ${DEPLOY_ROOT} ]
     then
