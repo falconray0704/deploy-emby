@@ -12,6 +12,7 @@ services:
       - ${EMBY_ROOT:-./emby_app}/datas/tvshows:/data/tvshows
       - ${EMBY_ROOT:-./emby_app}/datas/movies:/data/movies
       - ${EMBY_ROOT:-./emby_app}/datas/opt/vc/lib:/opt/vc/lib
+      - ${MEDIA_DATA:-./emby_app/datas}/media_center:/media_center:ro
     ports:
       - 8096:8096
       - 8920:8920 #optional
